@@ -1,8 +1,8 @@
-describe("Practice", () => {
+describe('Practice', () => {
     beforeEach(() => {
         cy.visit('https://techglobal-training.com/frontend')
-        cy.clickCard("Dropdowns");
-    });
+        cy.clickCard('Dropdowns')
+    })
   
 /*     it("Practice Example", function () {
       cy.get("#product_dropdown").select(2);
@@ -29,22 +29,22 @@ describe("Practice", () => {
   
 
 
-    it.only("Practice Example 2", function () {
-        const product = 'MacBook Pro 13';
-        const color = "Green";
-        const shippingOption = "Delivery";
+    it.only('Practice Example 2', function () {
+        const product = 'MacBook Pro 13'
+        const color = 'Green'
+        const shippingOption = 'Delivery'
         
     
-        cy.get('#product_dropdown').select(product);
-        cy.get('#color_dropdown').select(color);
-        cy.get('div[aria-label="Dropdown select"]').click(); 
-        cy.get(`span[aria-label="${shippingOption}"]`).click();
-        cy.get('#submit').click();
+        cy.get('#product_dropdown').select(product)
+        cy.get('#color_dropdown').select(color)
+        cy.get('div[aria-label="Dropdown select"]').click() 
+        cy.get(`span[aria-label="${shippingOption}"]`).click()
+        cy.get('#submit').click()
     
         if (shippingOption === 'Delivery') {
-            cy.get('#result').should('have.text', `Your ${color} ${product} will be delivered to you.`);
+            cy.get('#result').should('have.text', `Your ${color} ${product} will be delivered to you.`)
         } else {
-            cy.get('#result').should('have.text', `Your ${color} ${product} is ready to be picked up.`);
+            cy.get('#result').should('have.text', `Your ${color} ${product} is ready to be picked up.`)
         }
-    });
-});
+    })
+})

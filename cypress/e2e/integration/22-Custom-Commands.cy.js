@@ -1,13 +1,13 @@
 /// <reference types="cypress"/>
 
-describe("Custom Commands", () => {
+describe('Custom Commands', {tags: '@custom'}, () => {
 
     beforeEach(() => {
-      cy.visit(`${Cypress.env('SITE_URL')}/frontend`);
-      cy.clickCard("Html Elements");
-    });
+      cy.visit(`${Cypress.env('SITE_URL')}/frontend`)
+      cy.clickCard('Html Elements')
+    })
   
-    it("Parent Commands", () => {
+    it('Parent Commands', () => {
   
       /* Parent Commands */
       // cy.get()
@@ -24,7 +24,7 @@ describe("Custom Commands", () => {
   
       cy.login('Tech', 'Global')
   
-    });
+    })
   
     it('Child Command', () => {
   
@@ -34,6 +34,7 @@ describe("Custom Commands", () => {
         cy.log(`My text is: ${text}`)
       })
   
-      cy.get('#main_heading').logText()
+      cy.get('#main_heading').logText().haveText('Html Elements')
+      /* cy.get('#main_heading').assertAttr('id', '') */
     })
-  });
+  })

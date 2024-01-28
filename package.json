@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "test:all:headed": "npx cypress run --browser chrome --headed"
+    "test": "npx cypress run",
+    "test:all:headed": "npx cypress run --headed",
+    "test:chrome": "npx cypress run --browser chrome",
+    "test:config": "npx cypress run --config viewportWidth=1280,viewportHeight=720 --headed",
+    "test:specific": "npx cypress run --spec \"cypress/e2e/integration/22-Custom-Commands.cy.js\" --browser chrome",
+    "test:smoke": "npx cypress run --env grepTags=@smoke,grepFilterSpecs=true"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +17,12 @@
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.5",
     "cypress": "^13.6.2",
-    "dotenv": "^16.3.1"
+    "cypress-mochawesome-reporter": "^3.8.1",
+    "cypress-real-events": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.56.0"
   },
   "dependencies": {
-    "cypress-real-events": "^1.11.0",
-    "drag-and-drop": "^0.0.2"
+    "@cypress/grep": "^4.0.1"
   }
 }

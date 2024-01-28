@@ -1,4 +1,4 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 require('dotenv').config()
 
 module.exports = defineConfig({
@@ -6,14 +6,26 @@ module.exports = defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1980,
   chromeWebSecurity: false,
+  reporter: 'cypress-mochawesome-reporter',
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
+  },
   env: {
     SITE_URL: process.env.UI_URL
   },
   e2e: {
 
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on)
+      require('@cypress/grep/src/plugin')(config)
+      return config
     },
-    specPattern:'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}'
+    specPattern:'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}',
+    video: true,
   },
-});
+})

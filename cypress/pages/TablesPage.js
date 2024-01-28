@@ -7,4 +7,4 @@ class TablesPage {
 }
 
 
-export default new TablesPage();
+export default new TablesPage()
